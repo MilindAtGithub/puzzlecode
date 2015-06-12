@@ -2,6 +2,8 @@ package com.milind.binarytree.api;
 
 import com.milind.binarytree.node.Node;
 
+import java.util.Stack;
+
 /**
  * Created by deobhank on 6/10/2015.
  */
@@ -40,4 +42,54 @@ public class TreeApi {
             return countNode(root.getLeft())+1+ countNode(root.getRight());
         }
     }
+
+    Stack<Integer> localStack = new Stack<Integer>();
+    public int getMinValue(Node root){
+        if(root == null){
+            return 0;
+        }
+        traverseForMinVal(root);
+        return localStack.pop();
+    }
+
+    private void traverseForMinVal(Node root){
+        if(root.getRight()!=null){
+            traverseForMinVal(root.getRight());
+        }
+        if(root.getLeft()!=null){
+            traverseForMinVal(root.getLeft());
+        }
+        Node n = root;
+        if(localStack.isEmpty()){
+            localStack.push(new Integer(n.getValue().toString()));
+        } else{
+            int temp = Integer.parseInt(localStack.pop().toString());
+            if(temp <Integer.parseInt(n.getValue().toString())){
+                localStack.push(temp);
+            }else{
+                localStack.push(Integer.parseInt(n.getValue().toString()));
+            }
+        }
+    }
+
+    /**
+     * This will check if the binary tree is BST or not
+     * @param root
+     * @return
+     */
+    public boolean isBST(Node root){
+
+        if(root == null){
+            return true;
+        }
+        if(root.getLeft()!=null && Integer.parseInt(root.getLeft().getValue().toString())> Integer.parseInt(root.getValue().toString())){
+            return false;
+        }
+        if(root.getRight()!=null && Integer.parseInt(root.getRight().getValue().toString())< Integer.parseInt(root.getValue().toString())){
+            return false;
+        }
+        return (isBST(root.getLeft())&& isBST(root.getRight()));
+    }
+
+
 }

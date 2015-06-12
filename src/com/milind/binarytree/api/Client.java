@@ -63,5 +63,22 @@ public class Client {
         treeTraverseApi.traverseBreadthWise(root);
         System.out.println("");
         System.out.println(" Number of Nodes: "+treeApi.countNode(root));
+
+
+        Node introot = new Node(new Integer(5));
+        crApi = new TreeCreationApi(introot);
+        crApi.insertNode(new Node(new Integer(9)));
+        crApi.insertNode(new Node(new Integer(19)));
+        crApi.insertNode(new Node(new Integer(90)));
+        crApi.insertNode(new Node(new Integer(94)));
+        crApi.insertNode(new Node(new Integer(97)));
+        crApi.insertNode(new Node(new Integer(99)));
+        crApi.insertNode(new Node(new Integer(2)));
+        crApi.insertNode(new Node(new Integer(1000)));
+        new DisplayTreeApi().displayTree(introot);
+
+        System.out.println("Minimum Value: " + treeApi.getMinValue(introot));
+        System.out.println("Is BST: "+ treeApi.isBST(introot));
+
     }
 }
