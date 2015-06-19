@@ -91,5 +91,17 @@ public class TreeApi {
         return (isBST(root.getLeft())&& isBST(root.getRight()));
     }
 
+    public Node mirrorTree(Node root){
+
+        if(root == null){
+            return null;
+        }
+
+        Node temp = new Node(root.getValue());
+        temp.setLeft(mirrorTree(root.getRight()));
+        temp.setRight(mirrorTree(root.getLeft()));
+        return temp;
+    }
+
 
 }

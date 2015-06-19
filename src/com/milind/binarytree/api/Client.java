@@ -64,6 +64,8 @@ public class Client {
         System.out.println("");
         System.out.println(" Number of Nodes: "+treeApi.countNode(root));
 
+       root= treeApi.mirrorTree(root);
+        new DisplayTreeApi().displayTree(root);
 
         Node introot = new Node(new Integer(5));
         crApi = new TreeCreationApi(introot);
