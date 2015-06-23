@@ -81,6 +81,7 @@ public class Client {
 
         System.out.println("Minimum Value: " + treeApi.getMinValue(introot));
         System.out.println("Is BST: "+ treeApi.isBST(introot));
+        treeApi.nodeAtEachLevel(introot);
 
     }
 }

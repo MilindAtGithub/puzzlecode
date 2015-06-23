@@ -1,6 +1,7 @@
 package com.milind.binarytree.api;
 
 import com.milind.binarytree.node.Node;
+import com.milind.com.milind.puzzler.Linklist.LinkedList;
 
 import java.util.Stack;
 
@@ -103,5 +104,36 @@ public class TreeApi {
         return temp;
     }
 
+    public void nodeAtEachLevel(Node root){
+
+        if(root == null){
+            return;
+        }
+        java.util.LinkedList <Node> linkedList = new java.util.LinkedList<Node>();
+        linkedList.addLast(root);
+        Node marker = new Node();
+        linkedList.addLast(marker);
+        int level =1;
+        while ( !linkedList.isEmpty()){
+
+            Node n = linkedList.remove();
+            if(n== marker){
+                if(linkedList.isEmpty()){
+                    break;
+                }
+                level++;
+                linkedList.addLast(marker);
+                continue;
+            }
+            System.out.println(" Level :"+level+" Node :"+n.getValue());
+            if(n.getLeft()!=null){
+                linkedList.addLast(n.getLeft());
+            }
+            if(n.getRight() !=null){
+                linkedList.addLast(n.getRight());
+            }
+        }
+
+    }
 
 }
