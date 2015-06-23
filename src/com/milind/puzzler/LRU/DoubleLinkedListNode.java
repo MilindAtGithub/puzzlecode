@@ -5,7 +5,7 @@ package com.milind.puzzler.LRU;
  */
 public class DoubleLinkedListNode {
 
-    private  int value;
+    private  Object value;
     private  int key;
     private DoubleLinkedListNode next;
     private DoubleLinkedListNode prev;
@@ -39,7 +39,7 @@ public class DoubleLinkedListNode {
         this.prev = prev;
     }
 
-    public int getValue() {
+    public Object getValue() {
         return value;
     }
 

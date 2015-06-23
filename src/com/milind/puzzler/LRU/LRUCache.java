@@ -104,7 +104,7 @@ public class LRUCache {
      * @param key
      * @return
      */
-    public int get(int key){
+    public Object get(int key){
 
         DoubleLinkedListNode node = map.get(key);
         if(node == null){
